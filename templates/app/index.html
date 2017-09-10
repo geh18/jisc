@@ -1,6 +1,13 @@
 {% extends "base.html" %}
 
 {% block maincontent %}
+
+    <br>
+    <br>
+    <a href="{% url 'app-home' 1 %}" class="btn btn-default">Sort by most recent</a>
+    <a href="{% url 'app-home' 2 %}" class="btn btn-default">Sort by popularity</a>
+    <br>
+    <br>
     <div class="posts">
         {% for post in posts %}
             <div class="postitem">

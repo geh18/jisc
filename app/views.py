@@ -10,7 +10,17 @@ class HomeView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super(HomeView, self).get_context_data(**kwargs)
-        context['posts'] = Post.objects.filter(active=True)
+        posts = Post.objects.filter(active=True)
+
+        sort_by = self.kwargs.get('sort', None)
+
+        if sort_by == '1':
+            posts = posts.order_by('-publish')
+        elif sort_by == '2':
+            posts = posts.order_by('-viewed')
+
+        context['posts'] = posts
+
         return context
 
 

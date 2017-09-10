@@ -24,3 +24,6 @@ class Post(models.Model):
     publish = models.DateTimeField(default=datetime.now)  # When to publish post
     update = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
