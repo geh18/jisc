@@ -17,6 +17,10 @@ class Post(models.Model):
     text = models.TextField(null=True, blank=True)
     tags = models.ForeignKey(Tags, null=True, blank=True)
     active = models.BooleanField(default=True)  # If post is visible or not
+    # Nr of views should not be updated on every view
+    # It would be better to create intermediary table and insert a value
+    # Each time post is viewed. Then use a procedure to clean up and update this field
+    viewed = models.IntegerField(default=0)
     publish = models.DateTimeField(default=datetime.now)  # When to publish post
     update = models.DateTimeField(auto_now=True)
     created = models.DateTimeField(auto_now_add=True)

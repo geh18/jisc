@@ -1,5 +1,8 @@
 from django.views.generic import TemplateView
+from django.db.models import F
+
 from .models import Post
+
 
 
 class HomeView(TemplateView):
@@ -21,13 +24,13 @@ class SinglePostView(TemplateView):
 
         post = Post.objects.filter(pk=pk)
 
-        if not post:
-            pass  # TODO: Inform user
+        post.update(viewed=F('viewed') + 1)
 
-        post = post.get()
+        if post:
+            post = post.get()
 
-        if not post.active:
-            pass  # TODO: No-go post
+        if post and not post.active:
+            pass
 
         context['post'] = post
 

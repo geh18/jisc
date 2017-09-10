@@ -5,7 +5,7 @@ from .models import Post, Tags
 
 
 class PostsAdmin(admin.ModelAdmin):
-    pass
+    readonly_fields = ['viewed']
 
 
 class TagsAdmin(admin.ModelAdmin):

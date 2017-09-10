@@ -1,11 +1,16 @@
 {% extends "base.html" %}
 
 {% block maincontent %}
-    <div class="single-post">
-        <div class="postitem">
-            <h1 class="title">{{ post.title }}</h1>
-            <h4 class="date">{{ post.created|date:"d/m/Y"}}</h4>
-            <p>{{ post.text }}</p>
+
+    {% if post %}
+        <div class="single-post">
+            <div class="postitem">
+                <h1 class="title">{{ post.title }}</h1>
+                <h4 class="date">{{ post.created|date:"d/m/Y"}}</h4>
+                <p>{{ post.text }}</p>
+            </div>
         </div>
-    </div>
+    {% else %}
+        <h3>Post does not exist</h3>
+    {% endif %}
 {% endblock maincontent %}
