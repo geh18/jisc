@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block maincontent %}
+    <div class="single-post">
+        <div class="postitem">
+            <h1 class="title">{{ post.title }}</h1>
+            <h4 class="date">{{ post.created|date:"d/m/Y"}}</h4>
+            <p>{{ post.text }}</p>
+        </div>
+    </div>
+{% endblock maincontent %}
