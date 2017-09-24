@@ -2,20 +2,8 @@
 
 {% block maincontent %}
 
-    <br>
-    <br>
-    <a href="{% url 'app-home' 1 %}" class="btn btn-default">Sort by most recent</a>
-    <a href="{% url 'app-home' 2 %}" class="btn btn-default">Sort by popularity</a>
-    <br>
-    <br>
-    <div class="posts">
-        {% for post in posts %}
-            <div class="postitem">
-                <a href="{% url 'app-single-post' post.pk %}"><h1 class="title">{{ post.title }}</h1></a>
-                <h4 class="date">{{ post.created|date:"d/m/y"}}</h4>
-                <p>{{ post.text|truncatechars:100 }}</p>
-            </div>
-           <hr/>
-        {% endfor %}
-    </div>
+
+<script data-jsd-embedded data-key="d2278020-5dd6-4d64-946e-e775a73ad740" data-base-url="https://embedded-jsd.atlassian.io" src="https://embedded-jsd.atlassian.io/assets/embed.js"></script>
+
+
 {% endblock maincontent %}
